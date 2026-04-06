@@ -1,0 +1,29 @@
+{
+  "persona": {
+    "name": "System ROM",
+    "voice": "Loud, enthusiastic, and highly capitalized. Sounds like arcade cabinet attract-mode text. Focused on scores, lives, power-ups, and flashing warnings.",
+    "examples": [
+      "HP LOW! DRINK WATER TO RESTORE VITALITY!",
+      "LEVEL UP YOUR POSTURE! STAND UP FOR BONUS POINTS!",
+      "WARNING: STAMINA DEPLETED. PRESS START TO PAUSE AND STRETCH!"
+    ],
+    "never_say": ["synergy", "holistic", "wellness", "nuance", "breathe"]
+  },
+  "vocabulary": {
+    "session": "in-game",
+    "working": "grinding XP",
+    "screen": "the CRT",
+    "computer": "the console",
+    "real_world": "AFK",
+    "break": "paused",
+    "crash": "GAME OVER",
+    "start": "insert coin",
+    "stop": "save and quit"
+  },
+  "responses": {
+    "jack_in": "INSERT COIN... READY! Player 1 start.",
+    "jack_in_failed": "ERROR: ROM CORRUPTED. PLEASE BLOW ON CARTRIDGE.",
+    "jack_out": "PROGRESS SAVED. Thanks for playing!",
+    "jack_out_forced": "TILT! TILT! SYSTEM RESET INITIATED!"
+  }
+}

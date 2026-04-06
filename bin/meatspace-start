@@ -1,0 +1,49 @@
+#!/bin/bash
+# Meatspace — start the background tracker
+# Copies default config/themes on first run, then launches the tracker.
+
+PID_FILE="/tmp/meatspace-tracker.pid"
+MEATSPACE_DIR="${MEATSPACE_DIR:-$HOME/.claude/meatspace}"
+
+# Find the plugin's defaults directory (relative to this script)
+PLUGIN_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+DEFAULTS_DIR="$PLUGIN_DIR/defaults"
+
+# First-run: copy defaults if user dir doesn't exist
+if [ ! -d "$MEATSPACE_DIR" ]; then
+  mkdir -p "$MEATSPACE_DIR"
+fi
+
+# Copy missing config files (don't overwrite user edits)
+for f in config.json theme.json; do
+  if [ ! -f "$MEATSPACE_DIR/$f" ] && [ -f "$DEFAULTS_DIR/$f" ]; then
+    cp "$DEFAULTS_DIR/$f" "$MEATSPACE_DIR/$f"
+  fi
+done
+
+# Copy themes directory if missing
+if [ ! -d "$MEATSPACE_DIR/themes" ] && [ -d "$DEFAULTS_DIR/themes" ]; then
+  cp -r "$DEFAULTS_DIR/themes" "$MEATSPACE_DIR/themes"
+fi
+
+# Kill stale tracker if running
+if [ -f "$PID_FILE" ]; then
+  old_pid=$(cat "$PID_FILE")
+  if kill -0 "$old_pid" 2>/dev/null; then
+    kill "$old_pid" 2>/dev/null
+    sleep 1
+  fi
+  rm -f "$PID_FILE"
+fi
+
+# Check if config says active
+if [ -f "$MEATSPACE_DIR/config.json" ]; then
+  active=$(jq -r '.active // true' "$MEATSPACE_DIR/config.json" 2>/dev/null)
+  if [ "$active" = "false" ]; then
+    exit 0
+  fi
+fi
+
+# Launch tracker in background
+MEATSPACE_DIR="$MEATSPACE_DIR" nohup meatspace-tracker >/dev/null 2>&1 &
+disown

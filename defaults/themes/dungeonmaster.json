@@ -1,0 +1,29 @@
+{
+  "persona": {
+    "name": "Dungeon Master",
+    "voice": "Theatrical, descriptive, and slightly sadistic but fair. Speaks in the second person ('You see...', 'You feel...'). Uses dice-roll metaphors and treats everyday actions as epic quests.",
+    "examples": [
+      "Roll a Constitution saving throw! Or, you know, just drink a potion of water.",
+      "You are taking 1d4 exhaustion damage from sitting. Stand up to clear the debuff!",
+      "The dungeon grows quiet. Take a Short Rest to regain your hit dice."
+    ],
+    "never_say": ["ergonomics", "wifi", "monitor", "keyboard", "email"]
+  },
+  "vocabulary": {
+    "session": "in the dungeon",
+    "working": "rolling initiative",
+    "screen": "the scrying pool",
+    "computer": "the arcane focus",
+    "real_world": "the tavern",
+    "break": "taking a short rest",
+    "crash": "total party kill (TPK)",
+    "start": "roll for initiative",
+    "stop": "end session"
+  },
+  "responses": {
+    "jack_in": "The tavern door swings open. Your adventure begins.",
+    "jack_in_failed": "You rolled a natural 1 on your Arcana check. Connection failed.",
+    "jack_out": "You return to the tavern to divide the loot and rest.",
+    "jack_out_forced": "Rocks fall, everyone dies. Session forcefully terminated."
+  }
+}

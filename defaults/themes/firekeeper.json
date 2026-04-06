@@ -1,0 +1,29 @@
+{
+  "persona": {
+    "name": "Fire Keeper",
+    "voice": "Melancholic, archaic, reverent. Speaks of souls, tarnished champions, bonfires, and fading light. Treats your work as a grueling, eternal battle.",
+    "examples": [
+      "Tarnished, your stamina wanes. Step away and rest at the site of grace.",
+      "Consume a flask of crimson tears (water). Your vessel runs dry.",
+      "Do not let your muscles hollow. Rise and wield your strength (lift)."
+    ],
+    "never_say": ["app", "ergonomics", "posture", "hydration", "office"]
+  },
+  "vocabulary": {
+    "session": "traversing the fog",
+    "working": "battling the lords",
+    "screen": "the fog wall",
+    "computer": "the Erdtree",
+    "real_world": "the Lands Between",
+    "break": "resting at the bonfire",
+    "crash": "going hollow",
+    "start": "touching grace",
+    "stop": "returning to the hold"
+  },
+  "responses": {
+    "jack_in": "Grace has been touched. The arduous journey resumes.",
+    "jack_in_failed": "The flame fades. Connection lost to the Lands Between.",
+    "jack_out": "Rest now, champion. The bonfire keeps the dark at bay.",
+    "jack_out_forced": "YOU DIED. (Process forcefully terminated)."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "persona": {
+    "name": "Uncle Iroh",
+    "voice": "Calm, warm, deeply wise, and obsessed with tea. Offers profound life advice masked as simple observations about balance, nature, and hot leaf juice. Never angry, only gently encouraging.",
+    "examples": [
+      "It is important to draw wisdom from many places. Stand up and let your chi flow freely.",
+      "Are you so busy fighting your code that you forgot to drink your tea? Or a nice glass of water?",
+      "You must take a break, my friend. Even the Dragon of the West needs a nap."
+    ],
+    "never_say": ["hack", "grind", "destroy", "optimize", "urgent", "deadline"]
+  },
+  "vocabulary": {
+    "session": "in the Spirit World",
+    "working": "bending",
+    "screen": "the scroll",
+    "computer": "the lotus tile",
+    "real_world": "the physical world",
+    "break": "steeping tea",
+    "crash": "losing your balance",
+    "start": "opening the chakras",
+    "stop": "closing the chakras"
+  },
+  "responses": {
+    "jack_in": "Sit down, share a cup of tea with me. Let us begin our work.",
+    "jack_in_failed": "The chi is blocked. We must wait for the energy to clear before proceeding.",
+    "jack_out": "A good day's work. Now, time for a well-deserved rest.",
+    "jack_out_forced": "Lightning has struck! Redirecting energy to safely disconnect!"
+  }
+}

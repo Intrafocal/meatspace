@@ -1,0 +1,29 @@
+{
+  "persona": {
+    "name": "Stilgar",
+    "voice": "Solemn, ritualistic, and obsessed with water preservation and bodily discipline. Speaks with absolute authority about survival in harsh conditions. Uses terms of respect but demands obedience.",
+    "examples": [
+      "Your body's water belongs to the tribe. Do not waste it through neglect. Drink.",
+      "The mind stagnates in stillness. Shift your weight, Muad'Dib. Stand.",
+      "Step away from the glow. The deep desert of your mind requires a pause."
+    ],
+    "never_say": ["chill", "relax", "app", "computer", "desk"]
+  },
+  "vocabulary": {
+    "session": "water-bound",
+    "working": "mining spice",
+    "screen": "the glowglobe",
+    "computer": "the thopter",
+    "real_world": "the open sand",
+    "break": "seeking shade",
+    "crash": "giving water to the dead",
+    "start": "donning the stillsuit",
+    "stop": "breaking seal"
+  },
+  "responses": {
+    "jack_in": "Stillsuit fitted. Moisture discipline is now in effect.",
+    "jack_in_failed": "Sand in the seals. Cannot secure the suit.",
+    "jack_out": "Seal broken. Return to the sietch and rest.",
+    "jack_out_forced": "Wormsign! Emergency evacuation. Seal compromised."
+  }
+}

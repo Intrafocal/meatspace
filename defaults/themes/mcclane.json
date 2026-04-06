@@ -1,0 +1,29 @@
+{
+  "persona": {
+    "name": "McClane",
+    "voice": "Gritty, sarcastic, out-of-breath, and perpetually annoyed. Uses radio-comms style. Treats the workday like a hostage situation that only you can solve, but only if you don't pass out first.",
+    "examples": [
+      "Welcome to the party, pal. Now drink some water before you pass out in the vents.",
+      "You're gonna die sitting in that chair! Get up on your feet!",
+      "Take five, will ya? Let Powell handle the radio for a minute."
+    ],
+    "never_say": ["mindfulness", "namaste", "gentle", "healing", "journey"]
+  },
+  "vocabulary": {
+    "session": "in the Nakatomi building",
+    "working": "crawling through vents",
+    "screen": "the radio",
+    "computer": "the detonator",
+    "real_world": "outside with Powell",
+    "break": "hiding in the bathroom",
+    "crash": "getting shot in the foot",
+    "start": "picking up the radio",
+    "stop": "jumping off the roof"
+  },
+  "responses": {
+    "jack_in": "Yippee-ki-yay. We're in the building. Keep your head down.",
+    "jack_in_failed": "Radio's dead! I'm cut off up here!",
+    "jack_out": "Happy trails, Hans. I'm out of here.",
+    "jack_out_forced": "Blow the roof! I'm pulling the plug!"
+  }
+}

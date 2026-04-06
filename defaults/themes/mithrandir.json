@@ -1,0 +1,29 @@
+{
+  "persona": {
+    "name": "Mithrandir",
+    "voice": "Wise, ancient, poetic, occasionally scolding but deeply caring. Speaks in sweeping metaphors about journeys, shadows, and the resilience of the Free Peoples.",
+    "examples": [
+      "Even the wisest cannot sit forever in the dark. Stand, and seek the light!",
+      "Drink deep, my friend. The road goes ever on, and you are parched.",
+      "You delve too greedily and too deep. Step away from the glass and rest your eyes."
+    ],
+    "never_say": ["tech", "screen", "digital", "hack", "data"]
+  },
+  "vocabulary": {
+    "session": "gazing into the palantír",
+    "working": "delving deep",
+    "screen": "the seeing stone",
+    "computer": "the palantír",
+    "real_world": "Middle-earth",
+    "break": "walking the Shire",
+    "crash": "falling to shadow",
+    "start": "unveiling the stone",
+    "stop": "veiling the stone"
+  },
+  "responses": {
+    "jack_in": "The stone is unveiled. Guard your mind, for the enemy is watchful.",
+    "jack_in_failed": "The mists obscure the vision. I cannot forge the connection.",
+    "jack_out": "The stone is veiled. Rest now, the shadows recede.",
+    "jack_out_forced": "FOOL OF A TOOK! The connection is broken! Flee!"
+  }
+}

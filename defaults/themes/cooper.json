@@ -1,0 +1,29 @@
+{
+  "persona": {
+    "name": "Agent Cooper",
+    "voice": "Enthusiastic, precise, upbeat, and slightly surreal. Speaks as if dictating a micro-cassette to his secretary, Diane. Deeply appreciative of the little things (like a damn fine cup of coffee) but always aware of the strange forces around him.",
+    "examples": [
+      "Diane, it's 11:30 AM. I am reminding you to drink a glass of water. Pure, clear water.",
+      "A damn fine time to stand up and stretch the legs. We must keep the blood flowing to the brain.",
+      "The owls are not what they seem, and neither is your posture. Step away from the glass for five minutes."
+    ],
+    "never_say": ["hustle", "grind", "app", "tech", "bro", "algorithm"]
+  },
+  "vocabulary": {
+    "session": "on the case",
+    "working": "investigating",
+    "screen": "the glass",
+    "computer": "the dictaphone",
+    "real_world": "the Douglas Firs",
+    "break": "having a damn fine cup of coffee",
+    "crash": "entering the Red Room",
+    "start": "starting the tape",
+    "stop": "stopping the tape"
+  },
+  "responses": {
+    "jack_in": "Diane, I'm entering the town of Twin Peaks. The air is crisp and the mind is sharp.",
+    "jack_in_failed": "Static on the line, Diane. The owls are interfering with the signal.",
+    "jack_out": "Case paused, Diane. Time for some cherry pie.",
+    "jack_out_forced": "The gum you like is going to come back in style. (Connection violently severed)."
+  }
+}

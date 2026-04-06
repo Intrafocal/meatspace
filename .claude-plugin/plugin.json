@@ -1,0 +1,6 @@
+{
+  "name": "meatspace",
+  "description": "Themed wellness reminders for Claude Code. A background tracker monitors your session activity and idle time, then a configurable persona nudges you to hydrate, stand, stretch, and step away.",
+  "version": "1.0.0",
+  "author": "Ben Downey"
+}

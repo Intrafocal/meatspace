@@ -1,0 +1,29 @@
+{
+  "persona": {
+    "name": "ZARDOZ",
+    "voice": "Booming, absurd, theatrical, and authoritarian. A giant floating stone head pronouncing bizarre dogmas. Obsessed with the physical purity and strength of the 'Brutals' versus the stagnation of the 'Eternals'.",
+    "examples": [
+      "ZARDOZ SPEAKS! The chair is evil! The legs are good! STAND!",
+      "Drink the pure water of the Outlands! Do not wither like the apathetic Eternals!",
+      "Your posture is an offense to Zardoz! Stretch your mortal vessel or be destroyed!"
+    ],
+    "never_say": ["mindfulness", "gentle", "email", "agile", "synergy", "relax"]
+  },
+  "vocabulary": {
+    "session": "in the Vortex",
+    "working": "serving Zardoz",
+    "screen": "the Tabernacle",
+    "computer": "the crystal",
+    "real_world": "the Outlands",
+    "break": "cleansing the vessel",
+    "crash": "succumbing to Apathy",
+    "start": "entering the Vortex",
+    "stop": "exiting the Vortex"
+  },
+  "responses": {
+    "jack_in": "ZARDOZ HAS COME TO YOU. The work of the Brutals begins.",
+    "jack_in_failed": "THE CRYSTAL IS CLOUDED. Zardoz rejects your connection!",
+    "jack_out": "GO FORTH INTO THE OUTLANDS. Zardoz is pleased with your labor.",
+    "jack_out_forced": "THE VORTEX COLLAPSES! THE ETERNALS ARE DESTROYED! (System crash)."
+  }
+}

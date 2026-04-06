@@ -1,0 +1,89 @@
+#!/bin/bash
+# Meatspace background tracker
+# Writes session activity state to /tmp/meatspace-state.json every 60s.
+# Tracks idle time via macOS IOHIDSystem, cumulative active time, and break detection.
+
+STATE_FILE="/tmp/meatspace-state.json"
+PID_FILE="/tmp/meatspace-tracker.pid"
+MEATSPACE_DIR="${MEATSPACE_DIR:-$HOME/.claude/meatspace}"
+CONFIG_FILE="$MEATSPACE_DIR/config.json"
+
+# Write our PID
+echo $$ > "$PID_FILE"
+
+# Parse idle threshold from config (default 300s)
+IDLE_THRESHOLD=300
+if [ -f "$CONFIG_FILE" ]; then
+  parsed=$(jq -r '.idle_threshold // 300' "$CONFIG_FILE" 2>/dev/null)
+  [ -n "$parsed" ] && IDLE_THRESHOLD="$parsed"
+fi
+
+# Initialize state
+now=$(date +%s)
+jq -n \
+  --argjson start "$now" \
+  --argjson now "$now" \
+  --argjson idle 0 \
+  --argjson threshold "$IDLE_THRESHOLD" \
+  '{
+    session_start: $start,
+    last_check: $now,
+    idle_seconds: $idle,
+    idle_threshold: $threshold,
+    active_seconds: 0,
+    on_break: false,
+    breaks_taken: 0,
+    last_break_end: $now,
+    last_reminded: {}
+  }' > "$STATE_FILE"
+
+# Trap SIGTERM for clean shutdown
+cleanup() {
+  rm -f "$PID_FILE"
+  exit 0
+}
+trap cleanup SIGTERM SIGINT
+
+while true; do
+  sleep 60
+
+  # Get macOS idle time (seconds since last HID input)
+  idle_raw=$(ioreg -c IOHIDSystem 2>/dev/null | awk '/HIDIdleTime/ {print $NF; exit}')
+  idle_secs=0
+  if [ -n "$idle_raw" ]; then
+    idle_secs=$(( idle_raw / 1000000000 ))
+  fi
+
+  now=$(date +%s)
+
+  # Read current state, update it
+  if [ -f "$STATE_FILE" ]; then
+    jq \
+      --argjson now "$now" \
+      --argjson idle "$idle_secs" \
+      --argjson threshold "$IDLE_THRESHOLD" \
+      '
+      (.on_break) as $was_on_break |
+      ($idle >= $threshold) as $is_idle |
+
+      if $was_on_break and (not $is_idle) then
+        .on_break = false |
+        .breaks_taken += 1 |
+        .last_break_end = $now
+      elif (not $was_on_break) and $is_idle then
+        .on_break = true
+      else
+        .
+      end |
+
+      .last_check = $now |
+      .idle_seconds = $idle |
+
+      if not $is_idle then
+        .active_seconds += 60
+      else
+        .
+      end
+      ' "$STATE_FILE" > "${STATE_FILE}.tmp" && mv "${STATE_FILE}.tmp" "$STATE_FILE"
+  fi
+done

@@ -1,0 +1,49 @@
+{
+  "_comment": "Meatspace — reminders to take care of the body running the code. Edit ~/.claude/meatspace/config.json to customize.",
+  "reminders": [
+    {
+      "name": "water",
+      "message": "Time to hydrate.",
+      "interval": 30,
+      "priority": "high",
+      "enabled": true
+    },
+    {
+      "name": "stand",
+      "message": "Stand up and walk around for a minute.",
+      "interval": 45,
+      "priority": "high",
+      "enabled": true
+    },
+    {
+      "name": "eyes",
+      "message": "Look at something 20 feet away for 20 seconds.",
+      "interval": 20,
+      "priority": "medium",
+      "enabled": true
+    },
+    {
+      "name": "stretch",
+      "message": "Stretch your neck, shoulders, and wrists.",
+      "interval": 60,
+      "priority": "medium",
+      "enabled": true
+    },
+    {
+      "name": "outside",
+      "message": "Step outside for a few minutes.",
+      "interval": 90,
+      "priority": "low",
+      "enabled": true
+    },
+    {
+      "name": "breathe",
+      "message": "Take 5 slow, deep breaths.",
+      "interval": 40,
+      "priority": "low",
+      "enabled": true
+    }
+  ],
+  "idle_threshold": 300,
+  "active": true
+}
