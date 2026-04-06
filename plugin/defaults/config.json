@@ -13,7 +13,16 @@
       "message": "Stand up and walk around for a minute.",
       "interval": 45,
       "priority": "high",
-      "enabled": true
+      "enabled": true,
+      "posture": "sitting"
+    },
+    {
+      "name": "sit",
+      "message": "You've been standing a while. Take a seat for a few minutes.",
+      "interval": 30,
+      "priority": "medium",
+      "enabled": true,
+      "posture": "standing"
     },
     {
       "name": "eyes",

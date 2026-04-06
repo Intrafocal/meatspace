@@ -18,9 +18,13 @@ claude --plugin-dir /path/to/meatspace
 ## Usage
 
 ```
-/jack-in          # Start tracker + reminder loop
-/jack-out         # Stop tracker
-/meatspace        # Manual check (runs automatically via loop)
+/jack-in              # Start tracker + reminder loop
+/jack-out             # Stop tracker
+/meatspace            # Manual check (runs automatically via loop)
+/standing             # Tell Meatspace you're standing (suppresses stand reminders, starts a sit timer)
+/sitting              # Tell Meatspace you've sat back down
+/ack <reminder>       # Acknowledge a reminder to reset its timer (e.g. /ack water)
+/new-persona [name]   # Create a new theme interactively
 ```
 
 `/jack-in` starts a background process that tracks your active time and idle breaks via macOS HID input, then sets up a recurring check every 5 minutes. When a reminder is due, your chosen persona delivers it in character.
@@ -115,6 +119,7 @@ Edit `~/.claude/meatspace/config.json` to customize reminders:
 - **interval**: minutes between reminders
 - **priority**: `high` | `medium` | `low` (high always shows, low skips if you recently took a break)
 - **enabled**: toggle individual reminders
+- **posture** (optional): `"sitting"` or `"standing"` — only fires when you're in that posture (set via `/standing` and `/sitting`)
 - **idle_threshold**: seconds of inactivity before you're considered "on break"
 - **active**: `false` to pause all reminders
 

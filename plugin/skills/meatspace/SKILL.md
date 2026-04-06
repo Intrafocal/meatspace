@@ -28,6 +28,7 @@ jq -n --argjson now "$(date +%s)" \
   --slurpfile state /tmp/meatspace-state.json \
   --slurpfile config "$HOME/.claude/meatspace/config.json" '
   $state[0] as $s | $config[0] as $c |
+  ($s.posture // "sitting") as $posture |
   if ($c.active | not) then {action: "silent", reason: "paused"}
   elif $s.on_break then {action: "silent", reason: "on_break"}
   else
@@ -36,6 +37,7 @@ jq -n --argjson now "$(date +%s)" \
     [
       $c.reminders[] |
       select(.enabled != false) |
+      select(.posture == null or .posture == $posture) |
       (.interval * 60) as $interval_s |
       ($s.last_reminded[.name] // $s.session_start) as $last |
       ($now - $last) as $elapsed |
@@ -56,6 +58,7 @@ jq -n --argjson now "$(date +%s)" \
       active_minutes: ($active_min | round),
       breaks_taken: $s.breaks_taken,
       idle_seconds: $s.idle_seconds,
+      posture: $posture,
       candidates: .[:3]
     }
   end
