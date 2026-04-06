@@ -1,12 +1,13 @@
 {
+  "name": "meatspace",
+  "owner": {
+    "name": "Intrafocal"
+  },
   "plugins": [
     {
       "name": "meatspace",
-      "description": "Themed wellness reminders for Claude Code. A background tracker monitors your session activity and idle time, then a configurable persona nudges you to hydrate, stand, stretch, and step away.",
-      "source": {
-        "source": "github",
-        "repo": "Intrafocal/meatspace"
-      }
+      "description": "Themed wellness reminders for Claude Code",
+      "source": "."
     }
   ]
 }
