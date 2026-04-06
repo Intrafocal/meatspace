@@ -7,10 +7,7 @@
     {
       "name": "meatspace",
       "description": "Themed wellness reminders for Claude Code",
-      "source": {
-        "source": "github",
-        "repo": "Intrafocal/meatspace"
-      }
+      "source": "./plugin"
     }
   ]
 }
