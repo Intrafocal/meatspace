@@ -27,7 +27,7 @@ claude --plugin-dir /path/to/meatspace
 
 ## Themes
 
-Ships with 10 personas. Set the active theme in `~/.claude/meatspace/theme.json`:
+Ships with 13 personas. Set the active theme in `~/.claude/meatspace/theme.json`:
 
 ```json
 {"active": "molly.json"}
@@ -49,9 +49,17 @@ Ships with 10 personas. Set the active theme in `~/.claude/meatspace/theme.json`
 | `iroh.json` | Uncle Iroh | Avatar: The Last Airbender |
 | `zardoz.json` | ZARDOZ | Zardoz |
 
-### Create your own
+### Create your own with `/new-persona`
 
-Drop a JSON file in `~/.claude/meatspace/themes/` with this structure:
+The easiest way to create a theme is interactively:
+
+```
+/new-persona GLaDOS
+/new-persona Captain Picard
+/new-persona                   # asks you who you want
+```
+
+This walks you through building the character voice, vocabulary, and response templates, then saves the theme file. You can also create one manually — drop a JSON file in `~/.claude/meatspace/themes/` with this structure:
 
 ```json
 {
@@ -109,6 +117,41 @@ Edit `~/.claude/meatspace/config.json` to customize reminders:
 - **enabled**: toggle individual reminders
 - **idle_threshold**: seconds of inactivity before you're considered "on break"
 - **active**: `false` to pause all reminders
+
+## Auto-start on session
+
+By default, Meatspace is opt-in — you run `/jack-in` each session. To start automatically, add a `SessionStart` hook to your `~/.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "meatspace-start"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+This starts the background tracker on every session. You'll still need to run `/loop 5m /meatspace` once to start the reminder loop (or add it to a [SessionStart prompt hook](https://docs.anthropic.com/en/docs/claude-code/hooks) if you want it fully hands-free).
+
+## Renaming commands
+
+The skill names (`/jack-in`, `/jack-out`, `/meatspace`, `/new-persona`) are just directory names. To rename a command, rename the directory in your local plugin install:
+
+```bash
+# Example: rename /jack-in to /plug-in
+mv ~/.claude/plugins/cache/meatspace/skills/jack-in ~/.claude/plugins/cache/meatspace/skills/plug-in
+```
+
+Or if you've forked the repo, rename the directories in `skills/` and reinstall.
 
 ## Requirements
 
