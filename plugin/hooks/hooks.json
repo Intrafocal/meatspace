@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "meatspace-stop"
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/meatspace-stop"
           }
         ]
       }
